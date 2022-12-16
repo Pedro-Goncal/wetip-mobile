@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import {
   StyleSheet,
@@ -7,28 +7,30 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-} from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+  Platform,
+  Keyboard,
+} from "react-native";
+import { StatusBar } from "expo-status-bar";
 
-import Icon from 'react-native-vector-icons/Fontisto';
+import Icon from "react-native-vector-icons/Fontisto";
 
-import tw from 'tailwind-react-native-classnames';
+import tw from "tailwind-react-native-classnames";
 
 //Expo fonts
-import { useFonts } from 'expo-font';
+import { useFonts } from "expo-font";
 
 //Assets
-import Logo from '../assets/WeTip-Logo.png';
+import Logo from "../assets/WeTip-Logo.png";
 
-const logoColor = '#fa044f';
-const mainColor = '#F5F3F4';
+const logoColor = "#fa044f";
+const mainColor = "#F5F3F4";
 
-const backgroundColor = '#A3B9C9';
+const backgroundColor = "#A3B9C9";
 
-const buttonsColor = '#364958';
+const buttonsColor = "#364958";
 
-const textColor = '#000';
-const textColor2 = '#000';
+const textColor = "#000";
+const textColor2 = "#000";
 
 const HomeScreen = () => {
   const [total, setTotal] = useState(0);
@@ -37,18 +39,18 @@ const HomeScreen = () => {
   const [loading, setLoading] = useState(true);
 
   const handleTipTotal = (change) => {
-    if (change === '+') {
+    if (change === "+") {
       setTip(tip + 1);
-    } else if (change === '-') {
+    } else if (change === "-") {
       if (tip === 1) return;
       setTip(tip - 1);
     }
   };
 
   const handleBillSplit = (change) => {
-    if (change === '+') {
+    if (change === "+") {
       setSplit(split + 1);
-    } else if (change === '-') {
+    } else if (change === "-") {
       if (split === 1) return;
       setSplit(split - 1);
     }
@@ -66,6 +68,7 @@ const HomeScreen = () => {
           tw`flex justify-between items-center h-full p-6 pt-8`,
           { backgroundColor: backgroundColor },
         ]}
+        onPress={Keyboard.dismiss}
       >
         {/* LOGO */}
         <View style={tw`w-full p-10`}>
@@ -78,10 +81,10 @@ const HomeScreen = () => {
               WeTip
             </Text> */}
           <Image
-            source={require('../assets/WeTip-Logo.png')}
+            source={require("../assets/WeTip-Logo.png")}
             style={{
               height: 60,
-              width: 'auto',
+              width: 260,
             }}
           />
         </View>
@@ -90,7 +93,7 @@ const HomeScreen = () => {
         <View
           style={[
             tw`w-full m-2 rounded-2xl p-4 border`,
-            { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+            { backgroundColor: mainColor, borderColor: "#dbdbdb" },
           ]}
         >
           <View style={tw` flex justify-center items-center `}>
@@ -100,7 +103,7 @@ const HomeScreen = () => {
               </Text>
             </View>
             <View>
-              <Text style={[tw``, { fontSize: 48, color: '#fa044f' }]}>
+              <Text style={[tw``, { fontSize: 48, color: "#fa044f" }]}>
                 ${roundNum(total / split + (total * (tip / 100)) / split)}
               </Text>
             </View>
@@ -127,7 +130,7 @@ const HomeScreen = () => {
         <View
           style={[
             tw`w-full flex flex-row justify-between items-center p-2 rounded-xl border`,
-            { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+            { backgroundColor: mainColor, borderColor: "#dbdbdb" },
           ]}
         >
           <View>
@@ -141,7 +144,7 @@ const HomeScreen = () => {
               style={[tw`text-4xl`, { color: textColor }]}
               placeholder="00.00"
               autoFocus
-              keyboardType={'numeric'}
+              keyboardType={"numeric"}
               value={roundNum(total)}
               onChangeText={(text) => setTotal(text)}
               maxLength={6}
@@ -166,7 +169,7 @@ const HomeScreen = () => {
               onPress={() => setTip(10)}
               style={[
                 tw`py-2 px-6 rounded-lg flex justify-center  border`,
-                { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+                { backgroundColor: mainColor, borderColor: "#dbdbdb" },
               ]}
             >
               <Text style={[tw`text-xl`, { color: textColor }]}>10%</Text>
@@ -175,7 +178,7 @@ const HomeScreen = () => {
               onPress={() => setTip(15)}
               style={[
                 tw`py-2 px-6 rounded-lg flex justify-center  border`,
-                { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+                { backgroundColor: mainColor, borderColor: "#dbdbdb" },
               ]}
             >
               <Text style={[tw`text-xl`, { color: textColor }]}>15%</Text>
@@ -184,7 +187,7 @@ const HomeScreen = () => {
               onPress={() => setTip(20)}
               style={[
                 tw`py-2 px-6 rounded-lg flex justify-center border`,
-                { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+                { backgroundColor: mainColor, borderColor: "#dbdbdb" },
               ]}
             >
               <Text style={[tw`text-xl`, { color: textColor }]}>20%</Text>
@@ -195,7 +198,7 @@ const HomeScreen = () => {
             style={tw`w-full flex flex-row justify-between items-center p-2 px-10`}
           >
             <TouchableOpacity
-              onPress={() => handleTipTotal('-')}
+              onPress={() => handleTipTotal("-")}
               style={[
                 tw`p-1 rounded-lg shadow-sm`,
                 { backgroundColor: buttonsColor },
@@ -208,7 +211,7 @@ const HomeScreen = () => {
               <Text style={[tw`text-2xl `, { color: textColor2 }]}>%</Text>
             </View>
             <TouchableOpacity
-              onPress={() => handleTipTotal('+')}
+              onPress={() => handleTipTotal("+")}
               style={[
                 tw`p-1 rounded-lg shadow-sm`,
                 { backgroundColor: buttonsColor },
@@ -223,7 +226,7 @@ const HomeScreen = () => {
         <View
           style={[
             tw`w-full flex flex-row justify-between items-center p-2 rounded-xl border`,
-            { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+            { backgroundColor: mainColor, borderColor: "#dbdbdb" },
           ]}
         >
           <View>
@@ -234,7 +237,7 @@ const HomeScreen = () => {
           </View>
           <View style={tw` flex flex-row justify-around items-center p-2 px-6`}>
             <TouchableOpacity
-              onPress={() => handleBillSplit('-')}
+              onPress={() => handleBillSplit("-")}
               style={[
                 tw`p-1 rounded-lg shadow-sm`,
                 { backgroundColor: buttonsColor },
@@ -248,7 +251,7 @@ const HomeScreen = () => {
             </Text>
 
             <TouchableOpacity
-              onPress={() => handleBillSplit('+')}
+              onPress={() => handleBillSplit("+")}
               style={[
                 tw`p-1 rounded-lg shadow-sm`,
                 { backgroundColor: buttonsColor },
