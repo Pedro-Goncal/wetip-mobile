@@ -9,6 +9,7 @@ import {
   Image,
   Platform,
   Keyboard,
+  Pressable,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
@@ -47,6 +48,14 @@ const HomeScreen = () => {
     }
   };
 
+  // const handleTipTotal = change => {
+  //   if (change === "+") {
+  //     setTip(tip + 1);
+  //   } else if (change === "-" && tip > 1) {
+  //     setTip(tip - 1);
+  //   }
+  // };
+
   const handleBillSplit = (change) => {
     if (change === "+") {
       setSplit(split + 1);
@@ -56,6 +65,14 @@ const HomeScreen = () => {
     }
   };
 
+  // const handleBillSplit = change => {
+  //   if (change === "+") {
+  //     setSplit(split + 1);
+  //   } else if (change === "-" && split > 1) {
+  //     setSplit(split - 1);
+  //   }
+  // };
+
   const roundNum = (num) => {
     return Math.round((num + Number.EPSILON) * 100) / 100;
   };
@@ -63,12 +80,12 @@ const HomeScreen = () => {
   return (
     <>
       <StatusBar style="auto" />
-      <View
+      <Pressable
+        onPress={Keyboard.dismiss}
         style={[
           tw`flex justify-between items-center h-full p-6 pt-8`,
           { backgroundColor: backgroundColor },
         ]}
-        onPress={Keyboard.dismiss}
       >
         {/* LOGO */}
         <View style={tw`w-full p-10`}>
@@ -83,8 +100,9 @@ const HomeScreen = () => {
           <Image
             source={require("../assets/WeTip-Logo.png")}
             style={{
-              height: 60,
-              width: 260,
+              height: 100,
+              width: "auto",
+              resizeMode: "contain",
             }}
           />
         </View>
@@ -261,7 +279,7 @@ const HomeScreen = () => {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </Pressable>
     </>
   );
 };
