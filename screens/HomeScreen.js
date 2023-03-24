@@ -7,18 +7,10 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
-<<<<<<< HEAD
-  Platform,
-  Keyboard,
   Pressable,
+  Keyboard,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
-=======
-  Pressable,
-  Keyboard,
-} from 'react-native';
-import { StatusBar } from 'expo-status-bar';
->>>>>>> 617c4a1013165a6aa35e7d5cebe878967a161961
 
 import Icon from "react-native-vector-icons/Fontisto";
 
@@ -87,12 +79,8 @@ const HomeScreen = () => {
   return (
     <>
       <StatusBar style="auto" />
-<<<<<<< HEAD
       <Pressable
         onPress={Keyboard.dismiss}
-=======
-      <Pressable onPress={Keyboard.dismiss}
->>>>>>> 617c4a1013165a6aa35e7d5cebe878967a161961
         style={[
           tw`flex justify-between items-center h-full p-6 pt-8`,
           { backgroundColor: backgroundColor },
@@ -112,15 +100,9 @@ const HomeScreen = () => {
             source={require("../assets/WeTip-Logo.png")}
             style={{
               height: 100,
-<<<<<<< HEAD
               width: "auto",
               resizeMode: "contain",
-=======
-              width: 'auto',
-              resizeMode: "contain"
->>>>>>> 617c4a1013165a6aa35e7d5cebe878967a161961
             }}
-            
           />
         </View>
 
@@ -261,7 +243,7 @@ const HomeScreen = () => {
         <View
           style={[
             tw`w-full flex flex-row mb-10 justify-between items-center p-2 rounded-xl border`,
-            { backgroundColor: mainColor, borderColor: '#dbdbdb' },
+            { backgroundColor: mainColor, borderColor: "#dbdbdb" },
           ]}
         >
           <View>
