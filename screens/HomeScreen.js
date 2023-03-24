@@ -7,11 +7,18 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+<<<<<<< HEAD
   Platform,
   Keyboard,
   Pressable,
 } from "react-native";
 import { StatusBar } from "expo-status-bar";
+=======
+  Pressable,
+  Keyboard,
+} from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+>>>>>>> 617c4a1013165a6aa35e7d5cebe878967a161961
 
 import Icon from "react-native-vector-icons/Fontisto";
 
@@ -80,15 +87,19 @@ const HomeScreen = () => {
   return (
     <>
       <StatusBar style="auto" />
+<<<<<<< HEAD
       <Pressable
         onPress={Keyboard.dismiss}
+=======
+      <Pressable onPress={Keyboard.dismiss}
+>>>>>>> 617c4a1013165a6aa35e7d5cebe878967a161961
         style={[
           tw`flex justify-between items-center h-full p-6 pt-8`,
           { backgroundColor: backgroundColor },
         ]}
       >
         {/* LOGO */}
-        <View style={tw`w-full p-10`}>
+        <View style={tw`w-full pt-10`}>
           {/* <Text
               style={[
                 tw``,
@@ -101,9 +112,15 @@ const HomeScreen = () => {
             source={require("../assets/WeTip-Logo.png")}
             style={{
               height: 100,
+<<<<<<< HEAD
               width: "auto",
               resizeMode: "contain",
+=======
+              width: 'auto',
+              resizeMode: "contain"
+>>>>>>> 617c4a1013165a6aa35e7d5cebe878967a161961
             }}
+            
           />
         </View>
 
@@ -151,11 +168,11 @@ const HomeScreen = () => {
             { backgroundColor: mainColor, borderColor: "#dbdbdb" },
           ]}
         >
-          <View>
+          <Pressable onPress={Keyboard.dismiss}>
             <Text style={[tw`text-2xl pl-2`, { color: textColor }]}>
               Bill Total
             </Text>
-          </View>
+          </Pressable>
           <View style={tw`flex flex-row items-center overflow-hidden`}>
             <Text style={[tw`text-3xl pr-1`, { color: textColor }]}>$</Text>
             <TextInput
@@ -243,8 +260,8 @@ const HomeScreen = () => {
         {/* Split */}
         <View
           style={[
-            tw`w-full flex flex-row justify-between items-center p-2 rounded-xl border`,
-            { backgroundColor: mainColor, borderColor: "#dbdbdb" },
+            tw`w-full flex flex-row mb-10 justify-between items-center p-2 rounded-xl border`,
+            { backgroundColor: mainColor, borderColor: '#dbdbdb' },
           ]}
         >
           <View>
